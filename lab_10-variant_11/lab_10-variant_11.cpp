@@ -1,4 +1,4 @@
-#include <iostream>;
+ï»¿#include <iostream>;
 #include "windows.h";
 #include <string>;
 using namespace std;
@@ -19,25 +19,25 @@ int main()
     product products[n];
 
     for (int i = 0; i < n; i++) {
-        cout << "Ââåä³òü íàçâó " << (i + 1) << "-ãî òîâàðó: ";
-        //Âèêîðèñòàºìî ôóíêö³þ getline äëÿ ï³äòðèìêè ðÿäê³â ñ ïðîá³ëîì ³ öèêë, ùîá âèêëþ÷èòè ïóñò³ ðÿäêè
+        cout << "Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ Ð½Ð°Ð·Ð²Ñƒ " << (i + 1) << "-Ð³Ð¾ Ñ‚Ð¾Ð²Ð°Ñ€Ñƒ: ";
+        //Ð’Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð°Ñ”Ð¼Ð¾ Ñ„ÑƒÐ½ÐºÑ†Ñ–ÑŽ getline Ð´Ð»Ñ Ð¿Ñ–Ð´Ñ‚Ñ€Ð¸Ð¼ÐºÐ¸ Ñ€ÑÐ´ÐºÑ–Ð² Ñ Ð¿Ñ€Ð¾Ð±Ñ–Ð»Ð¾Ð¼ Ñ– Ñ†Ð¸ÐºÐ», Ñ‰Ð¾Ð± Ð²Ð¸ÐºÐ»ÑŽÑ‡Ð¸Ñ‚Ð¸ Ð¿ÑƒÑÑ‚Ñ– Ñ€ÑÐ´ÐºÐ¸
         do {getline(cin, products[i].name);} while (products[i].name == "");
-        cout << "Ââåä³òü êîä " << "òîâàðó \"" << products[i].name << "\": ";
+        cout << "Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ ÐºÐ¾Ð´ " << "Ñ‚Ð¾Ð²Ð°Ñ€Ñƒ \"" << products[i].name << "\": ";
         cin >> products[i].code;
-        cout << "Ââåä³òü ê³ëüê³ñòü " << "òîâàðó \"" << products[i].name << "\": ";
+        cout << "Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ ÐºÑ–Ð»ÑŒÐºÑ–ÑÑ‚ÑŒ " << "Ñ‚Ð¾Ð²Ð°Ñ€Ñƒ \"" << products[i].name << "\": ";
         cin >> products[i].count;
-        cout << "Ââåä³òü ö³íó " << "òîâàðó \"" << products[i].name << "\": ";
+        cout << "Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ Ñ†Ñ–Ð½Ñƒ " << "Ñ‚Ð¾Ð²Ð°Ñ€Ñƒ \"" << products[i].name << "\": ";
         cin >> products[i].price;
         cout << endl;
     }
 
-    //Âèâîäèìî âåñü àñîðòèìåíò òîâàð³â íà åêðàí
-    cout << "Àñîðòèìåíò òîâàð³â:" << endl;
+    //Ð’Ð¸Ð²Ð¾Ð´Ð¸Ð¼Ð¾ Ð²ÐµÑÑŒ Ð°ÑÐ¾Ñ€Ñ‚Ð¸Ð¼ÐµÐ½Ñ‚ Ñ‚Ð¾Ð²Ð°Ñ€Ñ–Ð² Ð½Ð° ÐµÐºÑ€Ð°Ð½
+    cout << "ÐÑÐ¾Ñ€Ñ‚Ð¸Ð¼ÐµÐ½Ñ‚ Ñ‚Ð¾Ð²Ð°Ñ€Ñ–Ð²:" << endl;
     for (int i = 0; i < n; i++) {
-        cout << products[i].name << ": êîä: " << products[i].code << "; ê³ëüê³ñòü: " << products[i].count << "; ö³íà: " << products[i].price << "." << endl;
+        cout << products[i].name << ": ÐºÐ¾Ð´: " << products[i].code << "; ÐºÑ–Ð»ÑŒÐºÑ–ÑÑ‚ÑŒ: " << products[i].count << "; Ñ†Ñ–Ð½Ð°: " << products[i].price << "." << endl;
     }
 
-    //Â³äñîðòóºìî òîâàðè çà ö³íîþ ³ âèâåäåìî íà åêðàí
+    //Ð’Ñ–Ð´ÑÐ¾Ñ€Ñ‚ÑƒÑ”Ð¼Ð¾ Ñ‚Ð¾Ð²Ð°Ñ€Ð¸ Ð·Ð° Ñ†Ñ–Ð½Ð¾ÑŽ Ñ– Ð²Ð¸Ð²ÐµÐ´ÐµÐ¼Ð¾ Ð½Ð° ÐµÐºÑ€Ð°Ð½
     for (int i = 0; i < n; i++) {
         for (int j = n - 2; j >= 0; j--) {
             if (products[j + 1].price < products[j].price) {
@@ -48,8 +48,8 @@ int main()
         }
     }
 
-    cout << "Àñîðòèìåíò òîâàð³â, â³äñîðòîâàíèé çà ö³íîþ:" << endl;
+    cout << "ÐÑÐ¾Ñ€Ñ‚Ð¸Ð¼ÐµÐ½Ñ‚ Ñ‚Ð¾Ð²Ð°Ñ€Ñ–Ð², Ð²Ñ–Ð´ÑÐ¾Ñ€Ñ‚Ð¾Ð²Ð°Ð½Ð¸Ð¹ Ð·Ð° Ñ†Ñ–Ð½Ð¾ÑŽ:" << endl;
     for (int i = 0; i < n; i++) {
-        cout << products[i].name << ": êîä: " << products[i].code << "; ê³ëüê³ñòü: " << products[i].count << "; ö³íà: " << products[i].price << "." << endl;
+        cout << products[i].name << ": ÐºÐ¾Ð´: " << products[i].code << "; ÐºÑ–Ð»ÑŒÐºÑ–ÑÑ‚ÑŒ: " << products[i].count << "; Ñ†Ñ–Ð½Ð°: " << products[i].price << "." << endl;
     }
 }
