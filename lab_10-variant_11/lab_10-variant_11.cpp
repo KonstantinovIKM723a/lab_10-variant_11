@@ -1,20 +1,55 @@
-// lab_10-variant_11.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+#include <iostream>;
+#include "windows.h";
+#include <string>;
+using namespace std;
 
-#include <iostream>
+struct product {
+    string name;
+    unsigned int code;
+    unsigned int count;
+    float price;
+};
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
+    const int n = 4;
+    product products[n];
+
+    for (int i = 0; i < n; i++) {
+        cout << "¬вед≥ть назву " << (i + 1) << "-го товару: ";
+        //¬икористаЇмо функц≥ю getline дл€ п≥дтримки р€дк≥в с проб≥лом ≥ цикл, щоб виключити пуст≥ р€дки
+        do {getline(cin, products[i].name);} while (products[i].name == "");
+        cout << "¬вед≥ть код " << "товару \"" << products[i].name << "\": ";
+        cin >> products[i].code;
+        cout << "¬вед≥ть к≥льк≥сть " << "товару \"" << products[i].name << "\": ";
+        cin >> products[i].count;
+        cout << "¬вед≥ть ц≥ну " << "товару \"" << products[i].name << "\": ";
+        cin >> products[i].price;
+        cout << endl;
+    }
+
+    //¬иводимо весь асортимент товар≥в на екран
+    cout << "јсортимент товар≥в:" << endl;
+    for (int i = 0; i < n; i++) {
+        cout << products[i].name << ": код: " << products[i].code << "; к≥льк≥сть: " << products[i].count << "; ц≥на: " << products[i].price << "." << endl;
+    }
+
+    //¬≥дсортуЇмо товари за ц≥ною ≥ виведемо на екран
+    for (int i = 0; i < n; i++) {
+        for (int j = n - 2; j >= 0; j--) {
+            if (products[j + 1].price < products[j].price) {
+                product p = products[j + 1];
+                products[j + 1] = products[j];
+                products[j] = p;
+            }
+        }
+    }
+
+    cout << "јсортимент товар≥в, в≥дсортований за ц≥ною:" << endl;
+    for (int i = 0; i < n; i++) {
+        cout << products[i].name << ": код: " << products[i].code << "; к≥льк≥сть: " << products[i].count << "; ц≥на: " << products[i].price << "." << endl;
+    }
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
